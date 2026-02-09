@@ -6,7 +6,9 @@ O artigo <a href="https://sites.stat.columbia.edu/gelman/research/published/sign
 
 <p align="justify">
 O ponto principal é que:
+  
 - A diferença entre um resultado "significativo" (p < 0.05) e "não significativo" (p >= 0.05) *não é* necessariamente significativa.
+  
 - Comparações de p-valores entre estudos/grupos devem ser feitas com cuidado.O melhor é observar o tamanho do efeito e seu nível de confiança
 </p>
 
