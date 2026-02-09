@@ -21,3 +21,9 @@ O artigo destaca problemas em interpretar p-valores como fronteiras rígidas (0.
 Podemos calcular a significância estatistica com Bootstrap em qualquer distribuição,resultando no d de Cohen e Intervalo de Confiança,com
 uma estimativa confiável da significância estatística.
 </p>
+
+Exemplo de uso:
+
+res = bootstrap_efeito(grupo_a, grupo_b)
+
+print(f"D de Cohen: {res['d']:.2f} ({res['interpretacao']})")
