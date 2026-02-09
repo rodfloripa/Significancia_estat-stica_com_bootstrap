@@ -40,11 +40,15 @@ Gerando dados não normais para teste
 
 np.random.seed(42)
 
-g1 = np.random.lognormal(mean=2, sigma=0.5, size=150)
+Grupo 1: Normal | Grupo 2: Exponencial (Não Normal)
 
-g2 = np.random.lognormal(mean=2.3, sigma=0.5, size=150)
+g1 = np.random.normal(100, 15, 50)
 
-resultado = bootstrap_efeito(g1, g2)
+g2 = np.random.exponential(scale=110, size=50)
+
+Informamos à função a natureza das distribuições
+
+resultado = bootstrap_efeito(g1, g2, normal1=True, normal2=False)
 
 
 
