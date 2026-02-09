@@ -54,11 +54,11 @@ g2 = np.random.exponential(scale=300, size=120)
 
 n_ideal = calcular_n_necessario(efeito_esperado=0.5)
 
-3. Execução da Análise
-4. 
+2. Execução da Análise
+   
 res = bootstrap_efeito(g1, g2)
 
-5. Print dos Resultados
+3. Print dos Resultados
 
 print("-" * 50)
 
