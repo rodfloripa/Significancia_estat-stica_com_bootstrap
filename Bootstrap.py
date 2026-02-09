@@ -55,7 +55,7 @@ def bootstrap_efeito(dados1, dados2, n_boot=10000, alpha=0.05, exibir_relatorio=
     if exibir_relatorio:
         n_ideal = calcular_n_necessario(efeito_esperado=0.5)
         print("-" * 55)
-        print(f"ANÁLISE ESTATÍSTICA (n={n1} e n={n2})")
+        print(f"ANÁLISE ESTATÍSTICA (n1={n1} e n2={n2})")
         print("-" * 55)
         print(f"D de Cohen: {efeito_obs:.3f} ({cl.upper()})")
         print(f"IC 95%: [{ic[0]:.3f} a {ic[1]:.3f}]")
