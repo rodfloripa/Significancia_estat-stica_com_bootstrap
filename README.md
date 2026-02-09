@@ -36,33 +36,36 @@ Efeitos Pequenos,Exigem amostras muito maiores para serem detectados com precis�
 | **Distribuições Não Normais** | Amostras $n \ge 100$ | Garante que o **Bootstrap** tenha "matéria-prima" suficiente para reamostrar as caudas. |
 | **Efeitos Pequenos** | Amostras Elevadas ($n > 400$) | Efeitos sutis (d < 0.2) são facilmente mascarados pelo ruído estatístico em amostras pequenas. |
 
---- EXEMPLO DE FLUXO DE TRABALHO ---
+# --- EXEMPLO DE USO COM DISTRIBUIÇÕES NÃO NORMAIS ---
+if __name__ == "__main__":
+    np.random.seed(42)
+   
+Criando dados não normais (Exponenciais)
+Grupo 1: Média ~200 | Grupo 2: Média ~300
+g1 = np.random.exponential(scale=200, size=120)
+g2 = np.random.exponential(scale=300, size=120)
 
-1. Planejamento: Quero detectar um efeito médio (0.5). Quanto preciso coletar?
+1. Planejamento (Opcional): Se eu quisesse detectar um efeito Médio (0.5)
+n_ideal = calcular_n_necessario(efeito_esperado=0.5)
 
-n_alvo = calcular_n_necessario(efeito_esperado=0.5)
+2. Execução da Análise
+res = bootstrap_efeito(g1, g2)
 
-print(f"🎯 Meta: Para um efeito médio, precisamos de n={n_alvo} por grupo.\n")
+3. Print dos Resultados
+print("-" * 50)
+print(f"ANÁLISE ESTATÍSTICA (n={res['n_atual'][0]} por grupo)")
+print("-" * 50)
+print(f"D de Cohen: {res['d']:.3f} ({res['interpretacao'].upper()})")
+print(f"IC 95%: [{res['ic'][0]:.3f} a {res['ic'][1]:.3f}]")
+print("-" * 50)
+print(f"INTERPRETAÇÃO PRÁTICA:")
+print(f"* Probabilidade de Superioridade: {res['superioridade_pct']:.1f}%")
+print(f"  (Chance de um indivíduo do {res['vencedor']} ser superior ao do {res['perdedor']})")
+print(f"* Sobreposição entre grupos: {res['sobreposicao_pct']:.1f}%")
 
-2. Execução: Simulando dados (abaixo do n_alvo para ver o efeito no IC)
-
-np.random.seed(42)
-
-grupo_a = np.random.gamma(shape=2, scale=2, size=40) # Distribuição não normal
-
-grupo_b = np.random.gamma(shape=2.5, scale=2, size=40)
-
-3. Análise
-
-res = bootstrap_efeito(grupo_a, grupo_b)
-
-print(f"📊 Resultado Observado: {res['d']:.2f} ({res['interpretacao']})")
-
-print(f"⚖️ Intervalo de Confiança (Bootstrap): [{res['ic'][0]:.2f}, {res['ic'][1]:.2f}]")
-
-if res['n_amostra'][0] < n_alvo:
-    
-   print(f"⚠️ Nota: Sua amostra atual ({res['n_amostra'][0]}) é menor que o n ideal ({n_alvo}).")
+if res['n_atual'][0] < n_ideal:
+    print(f"\n⚠️ AVISO: Amostra atual ({res['n_atual'][0]}) abaixo do n sugerido ({n_ideal}) para efeitos médios.")
+print("-" * 50)
 
 
 res = bootstrap_efeito(dados_a, dados_b)
