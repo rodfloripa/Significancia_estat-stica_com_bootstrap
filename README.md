@@ -38,50 +38,18 @@ Efeitos Pequenos,Exigem amostras muito maiores para serem detectados com precis�
 
 --- EXEMPLO DE USO COM DISTRIBUIÇÕES NÃO NORMAIS ---
 
-if __name__ == "__main__":
+Gerando dados não normais para teste
 
-    np.random.seed(42)
-   
-Criando dados não normais (Exponenciais)
+np.random.seed(42)
 
-Grupo 1: Média ~200 | Grupo 2: Média ~300
+g1 = np.random.lognormal(mean=2, sigma=0.5, size=150)
 
-g1 = np.random.exponential(scale=200, size=120)
+g2 = np.random.lognormal(mean=2.3, sigma=0.5, size=150)
 
-g2 = np.random.exponential(scale=300, size=120)
+resultado = bootstrap_efeito(g1, g2)
 
-1. Planejamento (Opcional): Se eu quisesse detectar um efeito Médio (0.5)
+print(f"\n⚠️ AVISO: Amostra atual ({res['n_atual'][0]}) abaixo do n sugerido ({n_ideal}) para efeitos médios.")
 
-n_ideal = calcular_n_necessario(efeito_esperado=0.5)
-
-2. Execução da Análise
-   
-res = bootstrap_efeito(g1, g2)
-
-3. Print dos Resultados
-
-print("-" * 50)
-
-print(f"ANÁLISE ESTATÍSTICA (n={res['n_atual'][0]} por grupo)")
-
-print("-" * 50)
-
-print(f"D de Cohen: {res['d']:.3f} ({res['interpretacao'].upper()})")
-
-print(f"IC 95%: [{res['ic'][0]:.3f} a {res['ic'][1]:.3f}]")
-
-print("-" * 50)
-
-print(f"INTERPRETAÇÃO PRÁTICA:")
-
-print(f"* Probabilidade de Superioridade: {res['superioridade_pct']:.1f}%")
-
-print(f"  (Chance de um indivíduo do {res['vencedor']} ser superior ao do {res['perdedor']})")
-
-print(f"* Sobreposição entre grupos: {res['sobreposicao_pct']:.1f}%")
-
-if res['n_atual'][0] < n_ideal:
-    print(f"\n⚠️ AVISO: Amostra atual ({res['n_atual'][0]}) abaixo do n sugerido ({n_ideal}) para efeitos médios.")
 print("-" * 50)
 
 
