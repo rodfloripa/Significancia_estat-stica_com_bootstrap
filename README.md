@@ -36,7 +36,7 @@ Efeitos Pequenos,Exigem amostras muito maiores para serem detectados com precis�
 | **Distribuições Não Normais** | Amostras $n \ge 100$ | Garante que o **Bootstrap** tenha "matéria-prima" suficiente para reamostrar as caudas. |
 | **Efeitos Pequenos** | Amostras Elevadas ($n > 400$) | Efeitos sutis (d < 0.2) são facilmente mascarados pelo ruído estatístico em amostras pequenas. |
 
-# --- EXEMPLO DE USO COM DISTRIBUIÇÕES NÃO NORMAIS ---
+--- EXEMPLO DE USO COM DISTRIBUIÇÕES NÃO NORMAIS ---
 if __name__ == "__main__":
     np.random.seed(42)
    
