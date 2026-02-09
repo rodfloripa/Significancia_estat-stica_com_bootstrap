@@ -37,30 +37,47 @@ Efeitos Pequenos,Exigem amostras muito maiores para serem detectados com precis�
 | **Efeitos Pequenos** | Amostras Elevadas ($n > 400$) | Efeitos sutis (d < 0.2) são facilmente mascarados pelo ruído estatístico em amostras pequenas. |
 
 --- EXEMPLO DE USO COM DISTRIBUIÇÕES NÃO NORMAIS ---
+
 if __name__ == "__main__":
+
     np.random.seed(42)
    
 Criando dados não normais (Exponenciais)
+
 Grupo 1: Média ~200 | Grupo 2: Média ~300
+
 g1 = np.random.exponential(scale=200, size=120)
+
 g2 = np.random.exponential(scale=300, size=120)
 
 1. Planejamento (Opcional): Se eu quisesse detectar um efeito Médio (0.5)
+
 n_ideal = calcular_n_necessario(efeito_esperado=0.5)
 
-2. Execução da Análise
+3. Execução da Análise
+4. 
 res = bootstrap_efeito(g1, g2)
 
-3. Print dos Resultados
+5. Print dos Resultados
+
 print("-" * 50)
+
 print(f"ANÁLISE ESTATÍSTICA (n={res['n_atual'][0]} por grupo)")
+
 print("-" * 50)
+
 print(f"D de Cohen: {res['d']:.3f} ({res['interpretacao'].upper()})")
+
 print(f"IC 95%: [{res['ic'][0]:.3f} a {res['ic'][1]:.3f}]")
+
 print("-" * 50)
+
 print(f"INTERPRETAÇÃO PRÁTICA:")
+
 print(f"* Probabilidade de Superioridade: {res['superioridade_pct']:.1f}%")
+
 print(f"  (Chance de um indivíduo do {res['vencedor']} ser superior ao do {res['perdedor']})")
+
 print(f"* Sobreposição entre grupos: {res['sobreposicao_pct']:.1f}%")
 
 if res['n_atual'][0] < n_ideal:
@@ -68,6 +85,4 @@ if res['n_atual'][0] < n_ideal:
 print("-" * 50)
 
 
-res = bootstrap_efeito(dados_a, dados_b)
 
-print(f"D de Cohen: {res['d']:.2f} ({res['interpretacao']})")
