@@ -32,7 +32,8 @@ uma estimativa confiável da significância estatística.
 | **Distribuições Não Normais** | Amostras $n \ge 100$ | Garante que o **Bootstrap** tenha "matéria-prima" suficiente para reamostrar as caudas. |
 | **Efeitos Pequenos** | Amostras Elevadas ($n > 400$) | Efeitos sutis (d < 0.2) são facilmente mascarados pelo ruído estatístico em amostras pequenas. |
 
-O código avisa se o número de amostras for menor que o necessário
+O <a href="https://github.com/rodfloripa/Significancia_estatistica_com_bootstrap/blob/main/Bootstrap.py">código</a> avisa se o número de amostras for menor que o necessário.
+
 
 --- EXEMPLO DE USO COM DISTRIBUIÇÕES NÃO NORMAIS ---
 
