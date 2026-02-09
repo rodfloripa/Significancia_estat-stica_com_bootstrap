@@ -46,6 +46,7 @@ g1_cont = np.random.exponential(scale=200, size=80)
 g2_cont = np.random.exponential(scale=250, size=80)
 
 bootstrap_efeito(g1_cont, g2_cont, normal1=False, normal2=False)
+<br><br>
 
 print("\n[Teste 2: Dados Binários (Conversão)]")
 
