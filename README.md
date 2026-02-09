@@ -21,12 +21,13 @@ O artigo destaca problemas em interpretar p-valores como fronteiras rígidas (0.
 Podemos calcular a significância estatistica com Bootstrap em qualquer distribuição,resultando no d de Cohen e Intervalo de Confiança,com
 uma estimativa confiável da significância estatística.
 </p>
+<br><br>
 
 Exemplo de uso:
 Definindo a semente para reprodutibilidade
 np.random.seed(42)
 
-1. Criando distribuições NÃO NORMAIS (Exponenciais)
+Criando distribuições NÃO NORMAIS (Exponenciais)
 
 Grupo A: Tempo de resposta médio de 200ms
 
