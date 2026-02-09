@@ -23,7 +23,19 @@ uma estimativa confiável da significância estatística.
 </p>
 
 Exemplo de uso:
+Definindo a semente para reprodutibilidade
+np.random.seed(42)
 
-res = bootstrap_efeito(grupo_a, grupo_b)
+1. Criando distribuições NÃO NORMAIS (Exponenciais)
+
+Grupo A: Tempo de resposta médio de 200ms
+
+dados_a = np.random.exponential(scale=200, size=100)
+
+Grupo B: Tempo de resposta médio de 350ms (um sistema mais lento)
+
+dados_b = np.random.exponential(scale=350, size=100)
+
+res = bootstrap_efeito(dados_a, dados_b)
 
 print(f"D de Cohen: {res['d']:.2f} ({res['interpretacao']})")
