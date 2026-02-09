@@ -36,19 +36,34 @@ Efeitos Pequenos,Exigem amostras muito maiores para serem detectados com precis�
 | **Distribuições Não Normais** | Amostras $n \ge 100$ | Garante que o **Bootstrap** tenha "matéria-prima" suficiente para reamostrar as caudas. |
 | **Efeitos Pequenos** | Amostras Elevadas ($n > 400$) | Efeitos sutis (d < 0.2) são facilmente mascarados pelo ruído estatístico em amostras pequenas. |
 
-Exemplo de uso:
-Definindo a semente para reprodutibilidade
+--- EXEMPLO DE FLUXO DE TRABALHO ---
+
+1. Planejamento: Quero detectar um efeito médio (0.5). Quanto preciso coletar?
+
+n_alvo = calcular_n_necessario(efeito_esperado=0.5)
+
+print(f"🎯 Meta: Para um efeito médio, precisamos de n={n_alvo} por grupo.\n")
+
+2. Execução: Simulando dados (abaixo do n_alvo para ver o efeito no IC)
+
 np.random.seed(42)
 
-Criando distribuições NÃO NORMAIS (Exponenciais)
+grupo_a = np.random.gamma(shape=2, scale=2, size=40) # Distribuição não normal
 
-Grupo A: Tempo de resposta médio de 200ms
+grupo_b = np.random.gamma(shape=2.5, scale=2, size=40)
 
-dados_a = np.random.exponential(scale=200, size=100)
+3. Análise
 
-Grupo B: Tempo de resposta médio de 350ms (um sistema mais lento)
+res = bootstrap_efeito(grupo_a, grupo_b)
 
-dados_b = np.random.exponential(scale=350, size=100)
+print(f"📊 Resultado Observado: {res['d']:.2f} ({res['interpretacao']})")
+
+print(f"⚖️ Intervalo de Confiança (Bootstrap): [{res['ic'][0]:.2f}, {res['ic'][1]:.2f}]")
+
+if res['n_amostra'][0] < n_alvo:
+    
+   print(f"⚠️ Nota: Sua amostra atual ({res['n_amostra'][0]}) é menor que o n ideal ({n_alvo}).")
+
 
 res = bootstrap_efeito(dados_a, dados_b)
 
