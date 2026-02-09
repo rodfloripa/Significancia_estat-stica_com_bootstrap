@@ -48,9 +48,7 @@ g2 = np.random.lognormal(mean=2.3, sigma=0.5, size=150)
 
 resultado = bootstrap_efeito(g1, g2)
 
-print(f"\n⚠️ AVISO: Amostra atual ({res['n_atual'][0]}) abaixo do n sugerido ({n_ideal}) para efeitos médios.")
 
-print("-" * 50)
 
 
 
