@@ -65,7 +65,7 @@ def bootstrap_efeito(dados1, dados2, n_boot=10000, alpha=0.05, normal1=True, nor
         print("-" * 60)
         print(f"ANÁLISE ESTATÍSTICA (n1={n1}, n2={n2})")
         print("-" * 60)
-        print(f"D de Cohen: {efeito_obs:.3f} ({cl.upper()})")
+        print(f"D de Cohen(tam. do efeito): {efeito_obs:.3f} ({cl.upper()})")
         print(f"IC 95%: [{ic[0]:.3f} a {ic[1]:.3f}]")
         print("-" * 60)
         print(f"INTERPRETAÇÃO PRÁTICA:")
