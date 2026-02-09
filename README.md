@@ -23,6 +23,19 @@ uma estimativa confiável da significância estatística.
 </p>
 <br><br>
 
+Situação,Recomendação
+Distribuições Normais,Amostras a partir de 30 unidades costumam ser suficientes.
+Distribuições Não Normais,Exigem amostras maiores (n=100 ou mais) para que o Bootstrap seja estável.
+Efeitos Pequenos,Exigem amostras muito maiores para serem detectados com precisão.
+
+## Guia de Recomendação para Tamanho de Amostra
+
+| Cenário | Recomendação | Justificativa |
+| :--- | :--- | :--- |
+| **Distribuições Normais** | Amostras $n \ge 30$ | A distribuição das médias tende à normalidade (Teorema Central do Limite). |
+| **Distribuições Não Normais** | Amostras $n \ge 100$ | Garante que o **Bootstrap** tenha "matéria-prima" suficiente para reamostrar as caudas. |
+| **Efeitos Pequenos** | Amostras Elevadas ($n > 400$) | Efeitos sutis (d < 0.2) são facilmente mascarados pelo ruído estatístico em amostras pequenas. |
+
 Exemplo de uso:
 Definindo a semente para reprodutibilidade
 np.random.seed(42)
