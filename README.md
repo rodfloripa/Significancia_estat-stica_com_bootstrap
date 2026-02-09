@@ -37,19 +37,23 @@ O <a href="https://github.com/rodfloripa/Significancia_estatistica_com_bootstrap
 
 --- EXEMPLO DE USO COM DISTRIBUIÇÕES NÃO NORMAIS ---
 
-Gerando dados não normais para teste
-
 np.random.seed(42)
+    
+print("\n[Teste 1: Dados Contínuos Não Normais]")
 
-Grupo 1: Normal | Grupo 2: Exponencial (Não Normal)
+g1_cont = np.random.exponential(scale=200, size=80)
 
-g1 = np.random.normal(100, 15, 50)
+g2_cont = np.random.exponential(scale=250, size=80)
 
-g2 = np.random.exponential(scale=110, size=50)
+bootstrap_efeito(g1_cont, g2_cont, normal1=False, normal2=False)
 
-Informamos à função a natureza das distribuições
+print("\n[Teste 2: Dados Binários (Conversão)]")
 
-resultado = bootstrap_efeito(g1, g2, normal1=True, normal2=False)
+g1_bin = np.random.choice([0, 1], size=100, p=[0.7, 0.3]) # 30% sucesso
+
+g2_bin = np.random.choice([0, 1], size=100, p=[0.5, 0.5]) # 50% sucesso
+
+bootstrap_efeito(g1_bin, g2_bin)
 
 
 
