@@ -18,6 +18,6 @@ O ponto principal é que:
 O artigo destaca problemas em interpretar p-valores como fronteiras rígidas (0.05) e a importância de considerar incertezas e contextos.
 </p>
 <p align="justify">
-Podemos calcular a significância estatistica com Bootstrap em qualquer distribuição, o d de Cohen e Intervalo de Confiança nos dão
+Podemos calcular a significância estatistica com Bootstrap em qualquer distribuição,resultando no d de Cohen e Intervalo de Confiança,com
 uma estimativa confiável da significância estatística.
 </p>
