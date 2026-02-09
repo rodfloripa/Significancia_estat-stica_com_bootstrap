@@ -23,10 +23,6 @@ uma estimativa confiável da significância estatística.
 </p>
 <br><br>
 
-Situação,Recomendação
-Distribuições Normais,Amostras a partir de 30 unidades costumam ser suficientes.
-Distribuições Não Normais,Exigem amostras maiores (n=100 ou mais) para que o Bootstrap seja estável.
-Efeitos Pequenos,Exigem amostras muito maiores para serem detectados com precisão.
 
 ## Guia de Recomendação para Tamanho de Amostra
 
