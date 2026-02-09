@@ -65,9 +65,12 @@ def bootstrap_efeito(dados1, dados2, n_boot=10000, alpha=0.05, exibir_relatorio=
         print(f"  (Chance de um indivíduo do {vencedor} ser superior ao do {perdedor})")
         print(f"* Sobreposição entre grupos: {sov:.1f}%")
         
-        if n1 < n_ideal or n2 < n_ideal:
-            print(f"\n⚠️ AVISO: Amostra abaixo do n sugerido ({n_ideal}) para efeitos médios.")
+        if n1 < n_ideal:
+            print(f"\n⚠️ AVISO: Amostra n1 abaixo do n sugerido ({n_ideal}) para efeitos médios.")
+        if n2 < n_ideal:
+            print(f"\n⚠️ AVISO: Amostra n2 abaixo do n sugerido ({n_ideal}) para efeitos médios.")
         print("-" * 55)
+                
 
     return {
         'd': efeito_obs, 'ic': ic, 'interpretacao': cl,
