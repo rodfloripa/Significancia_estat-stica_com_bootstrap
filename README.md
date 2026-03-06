@@ -56,6 +56,10 @@ g2_bin = np.random.choice([0, 1], size=100, p=[0.5, 0.5]) # 50% sucesso
 
 bootstrap_efeito(g1_bin, g2_bin)
 
+<p align="center">
+  <img src="https://github.com/rodfloripa/Significancia_estatistica_com_bootstrap/blob/main/boot.png">
+</p>
+
 
 
 
